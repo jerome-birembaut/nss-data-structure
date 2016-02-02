@@ -21,7 +21,17 @@ List.prototype.removeNode = function (node) {
     if (this.head == null) this.tail = null;
 
 };
-List.prototype.addNode = function (node) {
+List.prototype.prepend = function (data) {
+    var node = new ListNode(data);
+    this.prependNode(node);
+    return node;
+};
+List.prototype.append = function (data) {
+    var node = new ListNode(data);
+    this.appendNode(node);
+    return node;
+};
+List.prototype.appendNode = function (node) {
 
     if (this.head == null) {
         this.head = node;
@@ -33,7 +43,20 @@ List.prototype.addNode = function (node) {
     node.list = this;
 
 };
+List.prototype.addNode = function (node) {
+    this.appendNode(node);
+}
+List.prototype.prependNode = function (node) {
 
+    if (this.head != null) {
+        var n = this.head;
+        n.prev = node;
+        node.next = n;
+    }
+    this.head = node;
+    node.list = this;
+
+};
 var ListNode = function (data) {
 
     this.next = null;
