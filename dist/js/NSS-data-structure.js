@@ -53,7 +53,11 @@ List.prototype.prependNode = function (node) {
         n.prev = node;
         node.next = n;
     }
+
     this.head = node;
+    if (this.tail == null) {
+        this.tail = node;
+    }
     node.list = this;
 
 };
