@@ -64,11 +64,13 @@ List.prototype.prependNode = function (node) {
 List.prototype.insertAfter = function (node,data) {
     var nnode = new ListNode(data);
     this.insertNodeAfter(nnode,node)
+    nnode.list = this;
     return nnode;
 };
 List.prototype.insertBefore = function (node,data) {
     var nnode = new ListNode(data);
     this.insertNodeBefore(nnode,node)
+    nnode.list = this;
     return nnode;
 };
 List.prototype.insertNodeAfter = function (nodeInsert,node) {
