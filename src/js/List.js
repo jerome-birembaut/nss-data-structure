@@ -81,7 +81,7 @@ List.prototype.insertNodeAfter = function (nodeInsert,node) {
     if(next!=null)next.prev = nodeInsert;
     nodeInsert.prev = node;
     nodeInsert.next = next;
-
+    if(nodeInsert.next==null)this.tail=nodeInsert;
 };
 List.prototype.insertNodeBefore = function (nodeInsert,node) {
     if(node==null){
@@ -93,7 +93,7 @@ List.prototype.insertNodeBefore = function (nodeInsert,node) {
     if(prev!=null)prev.next = nodeInsert;
     nodeInsert.prev = prev;
     nodeInsert.next = node;
-
+    if(nodeInsert.prev==null)this.head=nodeInsert;
 };
 var ListNode = function (data) {
 
