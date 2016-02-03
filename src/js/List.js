@@ -61,6 +61,32 @@ List.prototype.prependNode = function (node) {
     node.list = this;
 
 };
+List.prototype.insertAfter = function (node,data) {
+    var nnode = new ListNode(data);
+    this.insertNodeAfter(node,nnode)
+    return nnode;
+};
+List.prototype.insertBefore = function (node,data) {
+    var nnode = new ListNode(data);
+    this.insertNodeBefore(node,nnode)
+    return nnode;
+};
+List.prototype.insertNodeAfter = function (node,nodeInsert) {
+    var next = node.next;
+    node.next = nodeInsert;
+    next.prev = nodeInsert;
+    nodeInsert.prev = node;
+    nodeInsert.next = next;
+
+};
+List.prototype.insertNodeBefore = function (node,nodeInsert) {
+    var prev = node.prev;
+    node.prev = nodeInsert;
+    prev.next = nodeInsert;
+    nodeInsert.prev = prev;
+    nodeInsert.next = node;
+
+};
 var ListNode = function (data) {
 
     this.next = null;
