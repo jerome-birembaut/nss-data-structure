@@ -51,11 +51,11 @@ tools.copy = function (src, dest) {
 tools.jsBuild = function () {
     var javascriptStream = gulp.src(config.js)
         .pipe(plumber(plumberErrorHandler))
-        .pipe(concat('NSS-data-structure' + '.js'))
-        .pipe(gulp.dest(config.dst_dir + "js/"))
+        .pipe(concat('nss-data-structure' + '.js'))
+        .pipe(gulp.dest(config.dst_dir ))
         .pipe(uglify({mangle: false}))
-        .pipe(concat('NSS-data-structure' + '.min' + '.js'))
-        .pipe(gulp.dest(config.dst_dir + "js/"));
+        .pipe(concat('nss-data-structure' + '.min' + '.js'))
+        .pipe(gulp.dest(config.dst_dir ));
     return javascriptStream;
 };
 
@@ -77,10 +77,10 @@ tools.cssBuild = function () {
     var vendorsFiles = gulp.src(config.css);
 
     var css = es.merge(appFiles, vendorsFiles)
-        .pipe(concat('NSS-data-structure.css'))
+        .pipe(concat('nss-data-structure.css'))
         .pipe(gulp.dest(config.dst_dir+'css/'))
         .pipe(minifycss())
-        .pipe(concat('NSS-data-structure.min.css'))
+        .pipe(concat('nss-data-structure.min.css'))
         .pipe(gulp.dest(config.dst_dir+'css/'));
 
     return css;

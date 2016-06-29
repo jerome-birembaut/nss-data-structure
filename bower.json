@@ -1,7 +1,26 @@
 {
   "name": "nss-data-structure",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "dependencies": {
 
-  }
+  },
+  "main": "dist/nss-data-structure.js",
+  "keywords": [
+    "data-structure",
+    "list",
+    "list chained",
+    "nss"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "/examples",
+    "/src",
+    "/bower_components",
+    "/.gitignore",
+    "/gulpfile.js",
+    "/node_modules",
+    "/gulpfile.js",
+    "/bower.json",
+    "/package.json"
+  ]
 }
